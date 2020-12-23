@@ -8,7 +8,7 @@
   {% if tasks|length < 1 %}
   <h4>no tasks created...</h4>
   {% else %}
-  <table>
+  <table class="table">
     <tr>
       <th>Task</th>
       <th>Added</th>
@@ -19,17 +19,33 @@
       <td>{{ task.content }}</td>
       <td>{{ task.date_created.date() }}</td>
       <td>
-        <a href="/delete/{{task.id}}">Delete</a>
-        <br />
-        <a href="/update/{{task.id}}">Update</a>
+        <div class="list-group">
+          <a
+            href="/delete/{{task.id}}"
+            class="list-group-item list-group-item-action"
+          >
+            Delete
+          </a>
+          <a
+            href="/update/{{task.id}}"
+            class="list-group-item list-group-item-action"
+            >Update</a
+          >
+        </div>
       </td>
     </tr>
     {% endfor %}
   </table>
   {% endif %}
   <form action="/" method="POST">
-    <input type="text" name="content" id="content" />
-    <input type="submit" value="Add Task" />
+    <input
+      type="text"
+      name="content"
+      id="content"
+      class="form-control"
+      placeholder="Enter task here"
+    />
+    <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
