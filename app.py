@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, render_template, url_for
 
 app = Flask(__name__)  # references this file
 
 
 @app.route("/")
 def index():
-    return "Hello world"
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
